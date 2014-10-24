@@ -1,0 +1,7 @@
+<%= provide(:title, 'Characters') %>
+
+<% @characters.each do |character| %>
+	<li>
+		<%= link_to character.name, character %>
+	</li>
+<% end %>
