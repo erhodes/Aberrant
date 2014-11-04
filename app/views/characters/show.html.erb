@@ -47,6 +47,12 @@
 			</tr>
 		</table>
 		<h3>Powers</h3>
+		<% @powers.each do |power| %>
+			<li>
+				<%= power.power.name %>
+				<%= power.rating %>
+			</li>
+		<% end %>
 	</div>
 </div>
 

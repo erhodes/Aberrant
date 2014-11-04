@@ -9,6 +9,7 @@ class CharactersController < ApplicationController
 
 	def show
 		@character = Character.find(params[:id])
+		@powers = @character.known_powers
 	end
 
 	def create
