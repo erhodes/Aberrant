@@ -1,0 +1,46 @@
+<div>
+	<%= form_for (@character) do |f| %>
+	<div>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<h3>
+		Attributes
+	</h3>
+	<div>
+		<%= f.label :strength %>
+		<%= f.number_field :strength %>
+		<%= f.label :perception %>
+		<%= f.text_field :perception %>
+		<%= f.label :appearance %>
+		<%= f.text_field :appearance %>
+	</div>
+	<div>
+		<%= f.label :dexterity %>
+		<%= f.number_field :dexterity %>
+		<%= f.label :intelligence %>
+		<%= f.text_field :intelligence %>
+		<%= f.label :manipulation %>
+		<%= f.text_field :appearance %>
+	</div>
+	<div>
+		<%= f.label :stamina %>
+		<%= f.number_field :stamina %>
+		<%= f.label :wits %>
+		<%= f.text_field :wits %>
+		<%= f.label :charisma %>
+		<%= f.text_field :charisma %>
+	</div>
+	<h3>
+		Powers
+	</h3>
+	<h3>
+		Backstory
+	</h3>
+	<div>
+		<%= f.text_area :description %>
+	</div>
+	<%= f.submit "Create Character"%>
+	<% end %>
+	<%= collection_select(:person, :city_id, Power.all, :id, :name) %>
+</div>

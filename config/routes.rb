@@ -1,5 +1,8 @@
 Aberrant::Application.routes.draw do
-  root "characters#index"
+  resources :organizations
+
+  root "static_pages#home"
   resources :characters
+  resources :powers
 
 end

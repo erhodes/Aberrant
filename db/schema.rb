@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028013044) do
+ActiveRecord::Schema.define(version: 20141108202403) do
 
   create_table "characters", force: true do |t|
     t.string   "name"
@@ -35,7 +35,20 @@ ActiveRecord::Schema.define(version: 20141028013044) do
     t.integer  "mega_charisma"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
   end
+
+  create_table "characters_organizations", force: true do |t|
+    t.string   "organization_id"
+    t.string   "character_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "characters_organizations", ["character_id", "organization_id"], name: "by_character_organization", unique: true
+  add_index "characters_organizations", ["character_id"], name: "index_characters_organizations_on_character_id"
+  add_index "characters_organizations", ["organization_id"], name: "index_characters_organizations_on_organization_id"
 
   create_table "characters_powers", force: true do |t|
     t.integer  "character_id"
@@ -60,6 +73,13 @@ ActiveRecord::Schema.define(version: 20141028013044) do
   add_index "known_powers", ["character_id", "power_id"], name: "index_known_powers_on_character_id_and_power_id", unique: true
   add_index "known_powers", ["character_id"], name: "index_known_powers_on_character_id"
   add_index "known_powers", ["power_id"], name: "index_known_powers_on_power_id"
+
+  create_table "organizations", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "powers", force: true do |t|
     t.string   "name"
