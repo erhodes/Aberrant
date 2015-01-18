@@ -40,7 +40,7 @@ def make_powers
 	Power.create!(name: "Telekinesis",
 		description: "Move things with yo mind!");
 	Power.create!(name: "Armor",
-		description: "Protect yourself!"))
+		description: "Protect yourself!")
 end
 
 def make_organizations

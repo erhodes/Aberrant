@@ -11,6 +11,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1.json
   def show
     @members = @organization.members
+    @relationship = CharactersOrganization.new
   end
 
   # GET /organizations/new

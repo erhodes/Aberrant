@@ -3,6 +3,7 @@
 <% @characters.each do |character| %>
 	<li>
 		<%= link_to character.name, character %>
+		<%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %>
 	</li>
 <% end %>
 <%= link_to "New Character", 'characters/new' %>

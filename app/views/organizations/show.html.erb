@@ -18,6 +18,13 @@
 		<%= relation.title %>
 	</li>
 <% end %>
+<p>	
+	<%= form_for (@relationship) do |f| %>
+		<%= f.collection_select(:character_id, Character.all, :id, :name) %>
+		<%= hidden_field_tag(:organization_id, @organization.id) %>
+		<%= f.submit "Hire" %>
+	<% end %>
+</p>
 
 <%= link_to 'Edit', edit_organization_path(@organization) %> |
 <%= link_to 'Back', organizations_path %>
