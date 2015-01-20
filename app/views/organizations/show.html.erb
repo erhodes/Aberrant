@@ -12,12 +12,27 @@
 <h3>
 	Members
 </h3>
-<% @members.each do |relation| %>
-	<li> 
-		<%= link_to relation.character.name, relation.character %>, 
-		<%= relation.title %>
-	</li>
-<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @members.each do |relation| %>
+      <tr>
+        <td><%= link_to relation.character.name, relation.character %></td>
+        <td><%= relation.title %></td>
+        <td><%= link_to 'Destroy', relation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <p>	
 	<%= form_for (@relationship) do |f| %>
 		<%= f.collection_select(:character_id, Character.all, :id, :name) %>
