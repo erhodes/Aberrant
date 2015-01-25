@@ -1,9 +1,26 @@
 <%= provide(:title, 'Characters') %>
 
-<% @characters.each do |character| %>
-	<li>
-		<%= link_to character.name, character %>
-		<%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %>
-	</li>
-<% end %>
+<table>
+  	<thead>
+	    <tr>
+	      <th>Name</th>
+	      <th></th>
+	      <th></th>
+	      <th></th>
+	    </tr>
+ 	</thead>
+ 	<tbody>
+
+	<% @characters.each do |character| %>
+		<tr>
+			<td>
+				<%= link_to character.name, character %>
+			</td>
+			<td>
+				<%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %>
+			</td>
+		</tr>
+	<% end %>
+	</tbody>
+	</table>
 <%= link_to "New Character", 'characters/new' %>

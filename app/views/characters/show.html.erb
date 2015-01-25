@@ -46,13 +46,15 @@
 				</td>
 			</tr>
 		</table>
-		<h3>Powers</h3>
-		<% @powers_known.each do |power| %>
-			<li>
-				<%= power.power.name %>
-				<%= power.rating %>
-			</li>
-		<% end %>
+		<h4>Powers</h4>
+		<ul>
+			<% @powers_known.each do |power| %>
+				<li>
+					<%= power.power.name %>
+					<%= power.rating %>
+				</li>
+			<% end %>
+		</ul>
 	</div>
 </div>
 
